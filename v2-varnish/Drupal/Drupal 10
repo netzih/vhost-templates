@@ -27,6 +27,11 @@ server {
     return 403;
   }
 
+location ~* ^/sites/.*/files/civicrm/(?:ConfigAndLog|custom|upload|templates_c) {
+    access_log off;
+    return 404;
+  }
+
   {{settings}}
 
   location ~ ^/sites/.*/files/styles/ {
